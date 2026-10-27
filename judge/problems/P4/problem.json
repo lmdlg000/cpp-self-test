@@ -1,0 +1,14 @@
+{
+  "id": "P4",
+  "title": "图书架类：固定容量与拷贝语义",
+  "build": "single",
+  "source_name": "P4.cpp",
+  "compile_cmd": [
+    "g++", "-DONLINE_JUDGE", "-O2", "-w", "-fmax-errors=3",
+    "-std=c++20", "{src}", "-lm", "-o", "{exe}"
+  ],
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "total_score": 100,
+  "compare": "exact"
+}

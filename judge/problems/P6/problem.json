@@ -1,0 +1,11 @@
+{
+  "id": "P6",
+  "title": "质检批次汇总（多文件工程）",
+  "build": "make",
+  "make_cmd": ["make"],
+  "target": "inspector",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "total_score": 100,
+  "compare": "exact"
+}

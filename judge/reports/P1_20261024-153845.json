@@ -1,0 +1,82 @@
+{
+  "problem": "P1",
+  "title": "快递运费结算器",
+  "submission": "D:\\Storage\\learning\\FCAA101-02_程序设计语言A\\judge\\reference\\P1.cpp",
+  "config": {
+    "title": "快递运费结算器",
+    "build": "single",
+    "source_name": "P1.cpp",
+    "compile_cmd": [
+      "g++",
+      "-DONLINE_JUDGE",
+      "-O2",
+      "-w",
+      "-fmax-errors=3",
+      "-std=c++20",
+      "{src}",
+      "-lm",
+      "-o",
+      "{exe}"
+    ],
+    "make_cmd": [
+      "make"
+    ],
+    "target": "",
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "build_timeout_ms": 60000,
+    "total_score": 100,
+    "compare": "exact",
+    "strict_newline": false,
+    "id": "P1"
+  },
+  "build": {
+    "ok": true,
+    "time_ms": 3400.52,
+    "message": "",
+    "log": ""
+  },
+  "cases": [
+    {
+      "name": "sample01",
+      "verdict": "AC",
+      "time_ms": 178.92,
+      "exit_code": 0,
+      "message": "",
+      "weight": 1.0,
+      "stdout_bytes": 34,
+      "stderr_bytes": 0
+    },
+    {
+      "name": "sample02",
+      "verdict": "AC",
+      "time_ms": 148.34,
+      "exit_code": 0,
+      "message": "",
+      "weight": 1.0,
+      "stdout_bytes": 25,
+      "stderr_bytes": 57
+    },
+    {
+      "name": "sample03",
+      "verdict": "AC",
+      "time_ms": 149.71,
+      "exit_code": 0,
+      "message": "",
+      "weight": 1.0,
+      "stdout_bytes": 25,
+      "stderr_bytes": 0
+    }
+  ],
+  "summary": {
+    "total": 3,
+    "passed": 3,
+    "pass_rate": 1.0,
+    "score": 100.0,
+    "total_score": 100,
+    "verdicts": {
+      "AC": 3
+    }
+  },
+  "generated_at": "2026-10-24 15:38:45"
+}

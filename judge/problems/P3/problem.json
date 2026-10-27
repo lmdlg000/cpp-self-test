@@ -1,0 +1,14 @@
+{
+  "id": "P3",
+  "title": "扫雷雷数图",
+  "build": "single",
+  "source_name": "P3.cpp",
+  "compile_cmd": [
+    "g++", "-DONLINE_JUDGE", "-O2", "-w", "-fmax-errors=3",
+    "-std=c++20", "{src}", "-lm", "-o", "{exe}"
+  ],
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "total_score": 100,
+  "compare": "exact"
+}

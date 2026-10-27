@@ -1,0 +1,11 @@
+{
+  "id": "P7",
+  "title": "大整数类 BigInt（算术运算版）",
+  "build": "make",
+  "make_cmd": ["make"],
+  "target": "Project7",
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "total_score": 100,
+  "compare": "exact"
+}

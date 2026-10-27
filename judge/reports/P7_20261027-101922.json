@@ -1,0 +1,73 @@
+{
+  "problem": "P7",
+  "title": "大整数类 BigInt（算术运算版）",
+  "submission": "D:\\Storage\\learning\\FCAA101-02_程序设计语言A\\judge\\reference\\P7",
+  "config": {
+    "title": "大整数类 BigInt（算术运算版）",
+    "build": "make",
+    "source_name": "main.cpp",
+    "compile_cmd": [
+      "g++",
+      "-DONLINE_JUDGE",
+      "-O2",
+      "-w",
+      "-fmax-errors=3",
+      "-std=c++20",
+      "{src}",
+      "-lm",
+      "-o",
+      "{exe}"
+    ],
+    "make_cmd": [
+      "make"
+    ],
+    "target": "Project7",
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "build_timeout_ms": 60000,
+    "total_score": 100,
+    "compare": "exact",
+    "strict_newline": false,
+    "id": "P7"
+  },
+  "build": {
+    "ok": true,
+    "time_ms": 3115.53,
+    "message": "",
+    "log": "g++ -std=c++20 -O2 -w -Wall -c main.C\ng++ -std=c++20 -O2 -w -Wall -c BigInt.C\ng++ -std=c++20 -O2 -w -Wall -o Project7 main.o BigInt.o\n"
+  },
+  "cases": [
+    {
+      "name": "hidden01",
+      "verdict": "WA",
+      "time_ms": 218.0,
+      "exit_code": 0,
+      "message": "第 1 行不符：期望 '246'，实际 '9999999999+1 = 10000000000'",
+      "weight": 2.0,
+      "stdout_bytes": 134,
+      "stderr_bytes": 0
+    },
+    {
+      "name": "sample01",
+      "verdict": "AC",
+      "time_ms": 171.48,
+      "exit_code": 0,
+      "message": "",
+      "weight": 1.0,
+      "stdout_bytes": 134,
+      "stderr_bytes": 0
+    }
+  ],
+  "summary": {
+    "total": 2,
+    "passed": 1,
+    "pass_rate": 0.5,
+    "score": 33.33,
+    "total_score": 100,
+    "verdicts": {
+      "WA": 1,
+      "AC": 1
+    }
+  },
+  "generated_at": "2026-10-27 10:19:22"
+}

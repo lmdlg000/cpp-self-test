@@ -1,0 +1,14 @@
+{
+  "id": "P5",
+  "title": "有理数类 Rational",
+  "build": "single",
+  "source_name": "P5.cpp",
+  "compile_cmd": [
+    "g++", "-DONLINE_JUDGE", "-O2", "-w", "-fmax-errors=3",
+    "-std=c++20", "{src}", "-lm", "-o", "{exe}"
+  ],
+  "time_limit_ms": 1000,
+  "memory_limit_mb": 256,
+  "total_score": 100,
+  "compare": "exact"
+}
