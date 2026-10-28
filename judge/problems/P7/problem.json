@@ -1,6 +1,6 @@
 {
   "id": "P7",
-  "title": "大整数类 BigInt（算术运算版）",
+  "title": "动态数组类 DoubleVector（自增长 + 运算符重载）",
   "build": "make",
   "make_cmd": ["make"],
   "target": "Project7",

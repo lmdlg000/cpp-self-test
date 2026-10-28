@@ -1,1 +1,1 @@
-{"name": "hidden01 别名/前导零/非法字符/默认构造", "weight": 2, "note": "隐藏 main.C：a+=a、b*=b、007、0000、12x34、默认构造、+1 进位、乘 1"}
+{"name": "hidden01 别名 +=/零容量/空数组/自赋值/深拷贝/const 下标/反复扩容", "weight": 2, "note": "隐藏 main.C：a+=a（扩容时源缓冲搬走）、DoubleVector(0) 自增长、空数组 operator<<、c=c 自赋值、深拷贝独立性、const 对象取下标与输出、容量 1 反复翻倍到 32"}

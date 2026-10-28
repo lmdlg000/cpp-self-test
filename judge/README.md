@@ -1,11 +1,11 @@
 # judge — 练习 Project 自动评分器（Online-Judge 风格）
 
-针对 `exercise/` 下 P1~P6 六道练习 project 的自动评测工具。按 OJ 的思路设计：
+针对 `exercise/` 下 P1~P7 七道练习 project 的自动评测工具。按 OJ 的思路设计：
 **编译 → 限时运行 → 与期望输出比对 → 判定 → 汇总得分与通过率**，并明确区分
 编译失败、运行超时、运行时错误、答案错误等情况。
 
 - 仅依赖 Python 3.8+ 标准库，无需 pip 安装任何包；
-- 需要 `g++`（P1~P5）和 `make`（P6）在 PATH 中（MSYS2 即可）；
+- 需要 `g++`（P1~P5）和 `make`（P6、P7）在 PATH 中（MSYS2 即可）；
 - Windows / Linux / macOS 通用。
 
 ## 1. 快速上手
@@ -58,7 +58,7 @@ judge/
 │   │       ├── sample01.json  # 可选：用例元数据（权重/单独时限/备注）
 │   │       └── …
 │   ├── P2/ … P7/
-├── reference/             # 参考实现（P1 单文件；P7 多文件工程 + 隐藏 main 变体）
+├── reference/             # 参考实现（P1 单文件；P6/P7 多文件工程；P7_hidden 为隐藏 main.C 变体）
 ├── examples/              # 演示提交：AC / WA / CE / TLE / RE / PE / 多文件 make
 └── reports/               # 评测 JSON 报告（自动创建）
 ```
@@ -92,7 +92,7 @@ python judge.py import-samples ../exercise/P3-minesweeper.md
 python judge.py import-samples ../exercise/P3-minesweeper.md --force   # 覆盖已有用例
 ```
 
-默认按文件名 `P?-xxx.md` 推断题号，也可 `--problem P3` 指定。已内置全部 6 题样例（共 30 组）。
+默认按文件名 `P?-xxx.md` 推断题号，也可 `--problem P3` 指定。已内置全部 7 题的样例与隐藏用例（共 33 组，其中 P7 的 `hidden01` 由 `reference/P7_hidden` 生成）。
 
 **用例元数据（可选）**：同名 `.json` 文件
 

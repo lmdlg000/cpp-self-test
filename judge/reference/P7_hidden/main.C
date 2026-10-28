@@ -1,25 +1,40 @@
 #include <iostream>
-#include "BigInt.h"
+#include "DoubleVector.h"
 using namespace std;
 
 int main() {
-    BigInt a("123");
-    a += a;                       // 别名：a = 246
-    cout << a << endl;
-    BigInt b("99");
-    b *= b;                       // 别名：b = 9801
-    cout << b << endl;
-    BigInt c("007");              // 前导零规范化
-    cout << c << endl;
-    BigInt d("0000");             // 规范 0
-    cout << d << endl;
-    BigInt e("12x34");            // 非法字符：取前缀 12（cerr 诊断）
-    cout << e << endl;
-    BigInt f;
-    cout << f << endl;            // 默认构造 0
-    BigInt g("9999999999");
-    BigInt h("1");
-    cout << (g + h) << endl;      // 10000000000
-    cout << (g * h) << endl;      // 9999999999
+    DoubleVector a;                        // 默认容量 10
+    for (int i = 0; i < 6; ++i) {
+        a.push_back(i + 0.5);              // 0.5 ... 5.5
+    }
+    a += a;                                // 别名：12 个元素，触发扩容
+    cout << a.getCount() << ":" << a << endl;
+
+    DoubleVector b(0);                     // 容量 0，必须能自己长出来
+    for (int i = 0; i < 3; ++i) {
+        b.push_back(-i * 0.25);            // 0, -0.25, -0.5
+    }
+    cout << b.getCount() << ":" << b << endl;
+
+    DoubleVector e;                        // 空数组
+    cout << e.getCount() << ":" << e << endl;
+
+    DoubleVector c;
+    c = c;                                 // 自赋值
+    cout << c.getCount() << ":" << c << endl;
+
+    DoubleVector d = b;                    // 深拷贝
+    d.push_back(9.75);
+    cout << b.getCount() << ":" << b << endl;
+    cout << d.getCount() << ":" << d << endl;
+
+    const DoubleVector k = d;              // const 对象：[] 与 << 必须能调用
+    cout << k[3] << "," << k[100] << "," << k[-2] << endl;
+
+    DoubleVector big(1);                   // 反复翻倍扩容
+    for (int i = 0; i < 20; ++i) {
+        big.push_back(i * 2.0 - 10.0);
+    }
+    cout << big.getCount() << ":" << big << endl;
     return 0;
 }

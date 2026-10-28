@@ -16,9 +16,9 @@
 | P4 | [P4-shelf-class.md](P4-shelf-class.md) | 图书架类：固定容量与拷贝语义 | 类、构造函数、析构函数、深拷贝构造、`operator=`、`const` 成员函数 | 第 5~6 周 | 单文件 | ★★★ |
 | P5 | [P5-rational.md](P5-rational.md) | 有理数类 Rational | 运算符重载、`friend operator<<`、`const` 正确性、`char*` 文本化、GCD | 第 6~7 周 | 单文件 | ★★★★ |
 | P6 | [P6-batch-makefile.md](P6-batch-makefile.md) | 质检批次汇总（多文件工程） | 多文件工程、`makefile`、`Batch*` 指针数组、二维动态内存清理 | 第 3~5 周综合 | **多文件 + `make`** | ★★★★ |
-| P7 | [P7-bigint.md](P7-bigint.md) | 大整数类 BigInt（算术运算版） | 多文件工程、资源三件套、`+`/`+=`/`*`/`*=` 重载、`char*` 逐位加乘、`const` 正确性 | 第 3~7 周综合 | **多文件 + `make`** | ★★★★★ |
+| P7 | [P7-double-vector.md](P7-double-vector.md) | 动态数组类 DoubleVector（自增长 + 运算符重载） | 多文件工程、资源三件套、`=`/`+=`/`[]`/`<<` 重载、容量翻倍扩容、`const` 正确性、越界返回 `0.0` | 第 3~7 周综合 | **多文件 + `make`** | ★★★★★ |
 
-建议顺序：P1 → P2 → P3 → P4 → P5 → P6 → P7。P6 是第一道"工程题"，P7 在工程骨架之上再加算术运算符重载，放在最后做。
+建议顺序：P1 → P2 → P3 → P4 → P5 → P6 → P7。P6 是第一道"工程题"，P7 在工程骨架之上再加"容量自增长 + 运算符重载 + 别名安全"，放在最后做。
 
 ## 1. 构建与评测方式
 
@@ -43,9 +43,9 @@ g++ -DONLINE_JUDGE -O2 -w -fmax-errors=3 -std=c++20 {src_path} -lm -o {exe_path}
 
   **评测时任何多余的 `cout` 都会 WA**。
 
-### 1.2 多文件工程题（P6）
+### 1.2 多文件工程题（P6、P7）
 
-P6 是**多文件工程题，不走上面的单文件 OJ 命令**：必须提交目录 + `makefile`，用
+P6、P7 是**多文件工程题，不走上面的单文件 OJ 命令**：必须提交目录 + `makefile`，用
 
 ```bash
 make          # 生成可执行文件
@@ -101,7 +101,7 @@ make clean    # 清理中间文件与可执行文件
 | R6 | **越界下标不得访问内存**：`remove/at/operator[]` 越界时"不操作 / 返回默认对象 / 返回 `NULL`" | 第 5 周 Project 5 `release`、`get`、`get_pointer` |
 | R7 | 本地用 `valgrind --leak-check=full --error-exitcode=1 ./a.out` 自测，要求 **0 errors、0 leaks**；没有 valgrind 就用 `g++ -g -O1 -fsanitize=address,undefined -fno-omit-frame-pointer`（第 6 周 Valgrind 演示） | 第 6 周 *Valgrind reports* |
 | R8 | 不改 `main`、不改变输出格式；只动题面要求写的部分 | 课件 *"main 函数（不得修改）"* |
-| R9 | 多文件题（P6）：头文件保护宏、`.h` 只放声明、`makefile` 的 `all`/`clean` 目标可用、`make` 之后不产生多余文件 | 第 3 周 *Header Files / Separate Declaration and Definition / makefile* |
+| R9 | 多文件题（P6、P7）：头文件保护宏、`.h` 只放声明、`makefile` 的 `all`/`clean` 目标可用、`make` 之后不产生多余文件 | 第 3 周 *Header Files / Separate Declaration and Definition / makefile* |
 
 ## 5. 统一评分（每题 100 分）
 
@@ -143,11 +143,11 @@ make clean    # 清理中间文件与可执行文件
 | --- | --- | --- |
 | 第 1 周（0825） | 变量与类型、整型/浮点运算、`if/else`、`cin/cout`、编译流程 | P1 |
 | 第 2 周（0901） | `switch`、`while` / `do-while` / `for`、`break/continue`、逻辑运算、`cerr` | P1、P2 |
-| 第 3 周（0908） | 数组、`new`/`delete[]`、函数与原型、重载、引用参数、作用域、头文件、`makefile` | P2、P3、P6 |
+| 第 3 周（0908） | 数组、`new`/`delete[]`、函数与原型、重载、引用参数、作用域、头文件、`makefile` | P2、P3、P6、P7 |
 | 第 4 周（0915） | 指针、指针与数组、`int**` 二维动态数组、函数返回数组、运算符优先级 | P3、P6 |
-| 第 5 周（0922） | 类与对象、构造/析构、public/private、对象指针、对象数组、拷贝构造与深拷贝 | P4、P6 |
-| 第 6 周（1013） | 构造/析构顺序、Valgrind、`operator=` / `+` / `++` / `[]`、`Vector` 扩容、引用传递 | P4、P5 |
-| 第 7 周（1020） | `const`、`inline`、返回引用、`char`/`char*`、`strcpy`/`strcmp`/`cctype`、`cin.getline` | P5 |
+| 第 5 周（0922） | 类与对象、构造/析构、public/private、对象指针、对象数组、拷贝构造与深拷贝 | P4、P6、P7 |
+| 第 6 周（1013） | 构造/析构顺序、Valgrind、`operator=` / `+` / `++` / `[]`、`Vector` 扩容、引用传递 | P4、P5、P7 |
+| 第 7 周（1020） | `const`、`inline`、返回引用、`char`/`char*`、`strcpy`/`strcmp`/`cctype`、`cin.getline` | P5、P7 |
 
 ### 8.2 禁止照抄（课件的示例与作业，练习一律**不得**作为题目）
 
@@ -156,8 +156,9 @@ make clean    # 清理中间文件与可执行文件
 - **`Monster` / `Team` / `Trainer`**（第 5~7 周 Project 5，国庆 OJ 题）→ 不要考"怪物队伍、容量 +3、释放用末位覆盖"。
 - **`Game` / `Round`、`Play` / `Calculate` / `Merge2` / `ReportAve`**（第 5 周 Project 4）→ 不要考"回合合并"。
 - **`BigInt` 大整数**（第 7 周 Project 6）→ 不要考"高位在前的大整数比较"。
+- **`Vector` 扩容示例**（第 6 周）→ 保留为 P7 的**底座**：P7 在其上加了多文件工程（R9）、`const` 接口、越界返回 `0.0`（R6）、`a += a` 别名安全；不要再单独出"只写扩容"的题。
 - **`Complex` 复数类、`XString` 字符串类**（第 6/7 周示例）→ 不要考"复数加减 / 字符串拼接类"。
 - **矩阵转置、`ArrayAddConst`**（第 4 周示例）→ 不要考"转置输出 / 全表加常数"。
 - **银行账户 `BankAccount`、`Person`**（第 5 周示例）→ 不要考"存款取款 / 自我介绍"。
 
-练习里出现的新场景：**快递计费、体检极值与中位数、扫雷雷数、图书架、有理数运算、质检批次汇总、大整数算术**。
+练习里出现的新场景：**快递计费、体检极值与中位数、扫雷雷数、图书架、有理数运算、质检批次汇总、动态数组扩容**。
